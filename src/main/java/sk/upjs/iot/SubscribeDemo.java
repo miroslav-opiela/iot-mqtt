@@ -16,7 +16,7 @@ public class SubscribeDemo {
 
         @Override
         public void messageArrived(String topic, MqttMessage mqttMessage) throws Exception {
-            System.out.println("topic" + ": " + new String(mqttMessage.getPayload()));
+            System.out.println(topic + ": " + new String(mqttMessage.getPayload()));
         }
 
         @Override
@@ -26,9 +26,9 @@ public class SubscribeDemo {
     }
 
     public static void main(String[] args) {
-        String topic = "sk/upjs/#";
+        String topic = "upjs/iot/#";
         int qos = 2;
-        String broker = "tcp://iot.eclipse.org:1883";
+        String broker = "tcp://test.mosquitto.org:1883";
         String clientId = MqttClient.generateClientId();
         MemoryPersistence persistence = new MemoryPersistence();
 
